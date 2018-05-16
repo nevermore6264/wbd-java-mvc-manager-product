@@ -17,7 +17,7 @@
 <p>
     <a href="create.jsp">Create new product</a>
 </p>
-<form method="post" action="find">
+<form method="post" action="/find">
     Find: <input type="text" name="name_search" id="name_search">
     <button>Find</button>
 </form>
@@ -36,7 +36,7 @@
             <td><c:out value="${product.getPrice()}"/></td>
             <td><c:out value="${product.getDescription()}"/></td>
             <td><c:out value="${product.getProducer()}"/></td>
-            <td><a href="/edits?id=${product.getId()}">Edit</a></td>
+            <td><a href="/edit?id=${product.getId()}">Edit</a></td>
             <td><a href="/delete?id=${product.getId()}">Delete</a></td>
         </tr>
     </c:forEach>
