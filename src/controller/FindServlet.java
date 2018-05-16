@@ -17,7 +17,7 @@ public class FindServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name_search");
-        request.setAttribute("products", productService.findByName(name));
+        request.setAttribute("products", this.productService.findByName(name));
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view_search.jsp");
         requestDispatcher.forward(request, response);
     }
