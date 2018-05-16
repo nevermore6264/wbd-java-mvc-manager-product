@@ -36,8 +36,8 @@
             <td><c:out value="${product.getPrice()}"/></td>
             <td><c:out value="${product.getDescription()}"/></td>
             <td><c:out value="${product.getProducer()}"/></td>
-            <td><a href="/edit?id=${product.getId()}"/>Edit</td>
-            <td><a href="/delete?id=${product.getId()}"/>Delete</td>
+            <td><a href="/edits?id=${product.getId()}">Edit</a></td>
+            <td><a href="/delete?id=${product.getId()}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

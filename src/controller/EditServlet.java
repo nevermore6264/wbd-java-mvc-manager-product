@@ -12,9 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "InsertServlet", urlPatterns = "/insert")
-public class InsertServlet extends HttpServlet {
-
+@WebServlet(name = "EditServlet",urlPatterns = "/edit")
+public class EditServlet extends HttpServlet {
     private ProductService productService = new ProductServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,13 +22,12 @@ public class InsertServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
         String producer = request.getParameter("producer");
-        if (this.productService.findById(id) == null) {
+        if (this.productService.findById(id) != null) {
             Product product = new Product(id, name, price, description, producer);
-            this.productService.save(product);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("create.jsp");
+            this.productService.update(id, product);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("update.jsp");
             dispatcher.forward(request, response);
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
